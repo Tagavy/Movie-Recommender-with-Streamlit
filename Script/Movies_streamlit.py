@@ -27,22 +27,8 @@ st.subheader(":blue[By popularity]")
 
 ## **Recommenders**
 
-#url1 = "https://drive.google.com/file/d/1sc_yJw6Ej7hmS36OIQHl1UX6h6Jq32uN/view?usp=share_link"
-#path1 = 'https://drive.google.com/uc?export=download&id='+url1.split('/')[-2]
 movies = pd.read_csv(r'Data/movies_movies.csv')
-
-
-#url2 = "https://drive.google.com/file/d/1shB74shA6w-rOcHHANDiXkiq4-RO-uyP/view?usp=share_link"
-#path2 = 'https://drive.google.com/uc?export=download&id='+url2.split('/')[-2]
 ratings = pd.read_csv(r'Data/movies_ratings.csv')
-
-# #url3 = "https://drive.google.com/file/d/1Kwuudazbm-jcRIxGO2g3HipoFFRlU17x/view?usp=share_link"
-# #path3 = 'https://drive.google.com/uc?export=download&id='+url3.split('/')[-2]
-# links = pd.read_csv(r'Data/movies_links.csv')
-
-# #url4 = "https://drive.google.com/file/d/1hgwga5-UMVYEM3qpQT_3vlLerJ3_F2B9/view?usp=share_link"
-# #path4 = 'https://drive.google.com/uc?export=download&id='+url4.split('/')[-2]
-# tags = pd.read_csv(r'Data/movies_tags.csv')
 
 ### Genres list
 
@@ -60,7 +46,6 @@ def pop_rec(genre, year, n_output):
     rating_df = pd.DataFrame(ratings.groupby('movieId')['rating'].mean()) # group movies and get their avarage rating
     rating_df['rating_count'] = ratings.groupby('movieId')['rating'].count() # get rating count of each movie(how many times each movie was rated)
     scaled_df = pd.DataFrame(scaler.fit_transform(rating_df), index=rating_df.index, columns=rating_df.columns) # scale the ratings and rating counts
-      #scaled_df
     scaled_df["hybrid"] = scaled_df['rating'] + scaled_df['rating_count'] # add up rating and rating count for each mivie
     sort_rate = pd.DataFrame(scaled_df["hybrid"].sort_values(ascending=False))
     pattern = '\((\d{4})\)'
