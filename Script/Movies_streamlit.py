@@ -17,7 +17,7 @@ st.title(":red[Movie Recommender] :movie_camera:")
 image = Image.open(r'Data/Pictures/Best-Christmas-Movies-FB.jpg')
 
 # Add links to the different sections
-st.markdown('<a href="#by-popularity">By popuilarity</a> / <a href="#by-movies-similarity">By movies similarity</a> / <a href="#by-users-similarity">By users similarity</a>.', unsafe_allow_html=True)
+st.markdown('<a href="#by-popularity">By popularity</a> / <a href="#by-movies-similarity">By movies similarity</a> / <a href="#by-users-similarity">By users similarity</a>.', unsafe_allow_html=True)
 
 # Display image in Streamlit app
 st.image(image, use_column_width=True)
