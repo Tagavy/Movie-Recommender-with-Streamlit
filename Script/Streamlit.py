@@ -88,8 +88,7 @@ for i in pop_rec(genre_inp, year_inp, num_inp1).title:
         posters_list1.append(link)
         titles_list1.append(i)
     except:
-        continue       
-#posters_list 
+        pass       
 
 columns1 = st.columns(len(posters_list1))
 for a, i, j in zip (columns1, posters_list1, titles_list1):
