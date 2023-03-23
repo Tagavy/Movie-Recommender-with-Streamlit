@@ -90,7 +90,7 @@ for i in pop_rec(genre_inp, year_inp, num_inp1).title:
     except:
         pass       
 
-columns1 = st.columns(len(posters_list1))
+columns1 = st.columns(int(len(posters_list1)))
 for a, i, j in zip (columns1, posters_list1, titles_list1):
     with a:
         st.image(i, j, 100)
