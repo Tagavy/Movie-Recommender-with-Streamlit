@@ -82,19 +82,16 @@ from PIL import Image
 posters_list1 = []
 titles_list1 = []
 
-length = 0
 for i in pop_rec(genre_inp, year_inp, num_inp1).title:
     try:
         link = mp.get_poster(title = i)
         posters_list1.append(link)
         titles_list1.append(i)
-        length += 1
     except:
-        continue
-    st.write(length)        
+        continue       
 #posters_list 
 
-columns1 = st.columns(length)
+columns1 = st.columns(len(titles_list1))
 for a, i, j in zip (columns1, posters_list1, titles_list1):
     with a:
         st.image(i, j, 100)
