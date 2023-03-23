@@ -89,7 +89,7 @@ for i in pop_rec(genre_inp, year_inp, num_inp1).title:
         titles_list1.append(i)
     except:
         pass       
-
+st.write(type(posters_list1), len(posters_list1))
 columns1 = st.columns(int(len(posters_list1)))
 for a, i, j in zip (columns1, posters_list1, titles_list1):
     with a:
