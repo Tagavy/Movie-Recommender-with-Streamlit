@@ -83,14 +83,15 @@ posters_list1 = []
 titles_list1 = []
 
 for i in pop_rec(genre_inp, year_inp, num_inp1).title:
+    titles_list1.append(i)
     try:
         link = mp.get_poster(title = i)
         posters_list1.append(link)
-        titles_list1.append(i)
-        st.write(posters_list1)
-        st.write(titles_list1)
+        
     except:
-        continue       
+        posters_list1.append('https://www.movienewz.com/img/films/poster-holder.jpg')
+        continue
+        
 st.write(type(posters_list1), len(posters_list1))
 columns1 = st.columns(int(len(posters_list1)))
 for a, i, j in zip (columns1, posters_list1, titles_list1):
